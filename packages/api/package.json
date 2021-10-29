@@ -1,9 +1,16 @@
 {
-  "name": "@mpnpm/eslint-config",
+  "name": "@mpnpm/api",
   "version": "1.0.0",
+  "private": true,
   "description": "Shared eslint config example",
-  "main": "index.js",
+  "main": "./package/index.js",
+  "exports": {
+    "require": "./package/index.js",
+    "import": "./package/index.es.js"
+  },
   "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

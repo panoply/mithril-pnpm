@@ -1,4 +1,5 @@
 {
+  "npm.packageManager": "pnpm",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -6,6 +7,8 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "**/node_modules": true
+    "**/tsconfig.tsbuildinfo": true,
+    "**/node_modules": true,
+    "**/.rollup.cache": true
   }
 }

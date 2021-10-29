@@ -4,7 +4,7 @@ import html from '@rollup/plugin-html';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import ts from '@rollup/plugin-typescript';
+import ts from 'rollup-plugin-typescript2';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import copy from 'rollup-plugin-copy';
@@ -126,7 +126,7 @@ export const plugin = {
   /**
    * Seamless integration with Typescript.
    *
-   * [@rollup/plugin-typescript](https://git.io/JuTng)
+   * [rollup-plugin-typescript2](https://git.io/JuEpw
    */
   get ts() {
     return ts;

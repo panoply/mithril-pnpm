@@ -2,6 +2,22 @@
 
 An example monorepo strap. The project can be used as a starting point for pnpm projects. Provides a series of packages that are consumed by various packages across the workspace. It includes a couple of packages that be used in bundle/build processes.
 
+## Usage
+
+At root:
+
+1. Run `pnpm i`
+2. Run `pnpm build`
+
+You can then cd into different packages (mainly `api` and `app`)
+
+## Commands
+
+```cli
+pnpm dev      Starts development in watch mode (if calling from root, runs recursively)
+pnpm build    Runs a production build (if calling from root, runs recursively)
+```
+
 #### @mpnpm/tsconfig
 
 This is a shareable `tsconfig.json` that each package which is TypeScript based can extend. It includes just some basic defaults.
@@ -32,11 +48,4 @@ This is a shareable ESLint config. Extend configuration from within `package.jso
     "rules": {}
   }
 }
-```
-
-### Commands
-
-```cli
-pnpm dev      Starts development in watch mode
-pnpm build    Runs a production build
 ```
