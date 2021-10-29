@@ -1,0 +1,11 @@
+{
+  "name": "@mpnpm/tsconfig",
+  "version": "1.0.0",
+  "description": "Shared typescript config example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "@mpnpm/tsconfig",
+  "exclude": ["node_modules"],
+  "include": ["index.ts"],
+  "compileOnSave": true,
+  "compilerOptions": {
+    "incremental": false,
+    "target": "ES2016",
+    "declarationMap": true
+  }
+}

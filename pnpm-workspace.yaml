@@ -1,0 +1,7 @@
+packages:
+  - "packages/api"
+  - "packages/app"
+  - "packages/eslint-config"
+  - "packages/rollup-config"
+  - "packages/tsconfig"
+  - "packages/prettier-config"

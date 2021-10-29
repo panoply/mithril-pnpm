@@ -1,0 +1,16 @@
+{
+  "name": "mpnpm",
+  "version": "1.0.0",
+  "description": "Example of pnpm monorepo for mithril friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mpnpm/eslint-config": "workspace:^1.0.0",
+    "@mpnpm/prettier-config": "workspace:^1.2.1",
+    "@mpnpm/rollup-config": "workspace:^1.0.0"
+  }
+}

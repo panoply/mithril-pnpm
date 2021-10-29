@@ -1,0 +1,23 @@
+{
+  "name": "@mpnpm/prettier-config",
+  "version": "1.2.1",
+  "description": "Shared prettier config across monorepo",
+  "main": "index.js",
+  "prettier": "./index.js",
+  "license": "MIT",
+  "keywords": [
+    "prettier",
+    "prettierconfig",
+    "config",
+    "formatting"
+  ],
+  "engines": {
+    "pnpm": ">=6"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  },
+  "peerDependencies": {
+    "prettier": "^2.4.1"
+  }
+}
