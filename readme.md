@@ -4,10 +4,9 @@ An example monorepo strap. The project can be used as a starting point for pnpm 
 
 ## Usage
 
-At root:
-
-1. Run `pnpm i`
-2. Run `pnpm build`
+```cli
+pnpm i
+```
 
 You can then cd into different packages (mainly `api` and `app`)
 

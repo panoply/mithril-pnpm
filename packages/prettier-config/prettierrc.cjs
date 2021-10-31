@@ -1,4 +1,6 @@
 /**
+ * Prettier Config
+ *
  * @type {import('prettier').Options}
  */
 module.exports = {

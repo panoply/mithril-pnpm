@@ -1,5 +1,4 @@
 # FILES
-index.ts
 tsconfig.json
 .prettierignore
 readme.md
@@ -10,3 +9,4 @@ changelog.md
 types
 node_modules
 versions
+src

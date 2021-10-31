@@ -1,18 +1,28 @@
-## @mpnpm/prettier-config
+# @mpnpm/prettier-config
 
-This package includes a shareable Prettier configuration used across the project.
+This package includes a shareable Prettier configuration that can be consumed across the workspace in different packages. This approach allows us to publish the config on the npm registry.
 
-### Install
+### Demonstrates
 
-[pnpm](https://pnpm.js.org/en/cli/install)
+This package demonstrates how an organization or project that ships both open and closed source packages can leverage a shared [Prettier](https://prettier.io/) configuration.
+
+# Commands
+
+The below command can be executed from within the package.
 
 ```cli
-pnpm add prettier @mpnpm/prettier-config --save-dev
+pnpm bump     Updates packages depending on the module to latest version
 ```
 
-> Prettier is an `optionalDependency` so you will need to install it within your project.
+# Install
 
-### Usage
+```cli
+pnpm add prettier @mpnpm/prettier-config -D
+```
+
+> Prettier is an `peerDependency` so you will need to install it within your project.
+
+# Usage
 
 Extend configuration from within `package.json` files.
 
@@ -35,17 +45,17 @@ Install the [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // disabled in brixtol packages
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // disabled in brixtol packages
+   // "editor.defaultFormatter": "esbenp.prettier-vscode" // disabled in brixtol packages
   }
 }
 ```
 
-### Ignore Files
+### Ignored Files
 
-In almost all packages within the monorepo a `.prettierignore` file is included to prevent prettier from wreaking utter havoc in by attempting to format the following files types:
+In some package contained within the monorepo and also in the root a `.prettierignore` file is included. This is to prevent prettier from wreaking utter havoc by attempting to format the following files types:
 
 ```
 *.toml
@@ -58,4 +68,4 @@ In almost all packages within the monorepo a `.prettierignore` file is included 
 *.html
 ```
 
-Prettier is cool and all, but just leave it to ESLint for JS/TS and other files. Even if ESlint is not built for formatting, it feels rather silly to have code be passed through 2 parsers when one suffices. If you want, exclude the ignores at your taste in each package.
+Prettier is cool and all, but just leave it to ESLint/Stylelint for JS/TS and other files. Even if ESlint is not built for formatting, it feels rather silly to have code be passed through 2 parsers when one suffices. If you want, exclude the ignores at your taste.

@@ -1,12 +1,10 @@
 {
   "name": "@mpnpm/app",
   "version": "1.0.0",
-  "description": "An app package using mithril",
-  "main": "./package/index.js",
-  "exports": {
-    "require": "./package/index.js",
-    "import": "./package/index.es.js"
-  },
+  "description": "An example web application within the monorepo.",
+  "private": true,
+  "main": "./public/index.js",
+  "exports": "./public/index.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c --environment prod",
@@ -16,20 +14,23 @@
   "eslintConfig": {
     "extends": "@mpnpm/eslint-config",
     "ignorePatterns": [
-      "package"
+      "public"
     ]
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "@mpnpm/eslint-config": "workspace:^1.0.0",
-    "@mpnpm/prettier-config": "workspace:^1.2.1",
-    "@mpnpm/rollup-config": "workspace:^1.0.0",
-    "@mpnpm/tsconfig": "workspace:^1.0.0",
-    "@types/mithril": "^2.0.8"
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "@types/mithril": "^2.0.8",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "sass": "^1.43.4"
   },
   "dependencies": {
     "@mpnpm/api": "workspace:^1.0.0",
-    "mithril": "^2.0.4"
+    "mithril": "^2.0.4",
+    "rambda": "^6.9.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8.3.11"
   }
 }

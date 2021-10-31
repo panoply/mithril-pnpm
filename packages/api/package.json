@@ -2,17 +2,22 @@
   "name": "@mpnpm/api",
   "version": "1.0.0",
   "private": true,
-  "description": "Shared eslint config example",
+  "description": "A private package that contains some logic that can be consumed in different package across the workspace",
   "main": "./package/index.js",
-  "exports": {
-    "require": "./package/index.js",
-    "import": "./package/index.es.js"
-  },
+  "exports": "./package/index.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c --environment prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c --environment prod && tsc --emitDeclarationOnly",
+    "dts": "tsc --emitDeclarationOnly",
+    "bump": "pnpm up @mpnpm/prettier-config -r",
+    "postversion": "pnpm bump"
   },
-  "author": "",
-  "license": "ISC"
+  "prettier": "@mpnpm/prettier-config",
+  "eslintConfig": {
+    "extends": "@mpnpm/eslint-config",
+    "ignorePatterns": [
+      "public"
+    ]
+  },
+  "license": "MIT"
 }

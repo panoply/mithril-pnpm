@@ -1,8 +1,10 @@
 {
   "extends": "@mpnpm/tsconfig",
+  "exclude": ["package"],
   "include": ["src"],
   "compilerOptions": {
+    "incremental": false,
+    "outDir": "package",
     "declaration": true,
-    "declarationDir": "package"
   }
 }

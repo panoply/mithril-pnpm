@@ -1,0 +1,17 @@
+body {
+  padding: 50px;
+}
+
+h1 {
+  color: palevioletred;
+}
+
+// These classes will be purged and removed
+// when running "pnpm build"
+.unused-class-1 {
+  background-color: rebeccapurple;
+}
+
+.unused-class-2 {
+  background-color: rebeccapurple;
+}

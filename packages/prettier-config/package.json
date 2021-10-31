@@ -2,8 +2,8 @@
   "name": "@mpnpm/prettier-config",
   "version": "1.2.1",
   "description": "Shared prettier config across monorepo",
-  "main": "index.js",
-  "prettier": "./index.js",
+  "main": "prettier.cjs",
+  "prettier": "./prettier.cjs",
   "license": "MIT",
   "keywords": [
     "prettier",
@@ -11,6 +11,10 @@
     "config",
     "formatting"
   ],
+  "scripts": {
+    "bump": "pnpm up @mpnpm/prettier-config -r",
+    "postversion": "pnpm bump"
+  },
   "engines": {
     "pnpm": ">=6"
   },

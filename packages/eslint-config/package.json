@@ -2,10 +2,7 @@
   "name": "@mpnpm/eslint-config",
   "version": "1.0.0",
   "description": "Shared eslint config example",
-  "main": "./index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "./eslintrc.cjs",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",

@@ -7,8 +7,8 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "**/tsconfig.tsbuildinfo": true,
-    "**/node_modules": true,
-    "**/.rollup.cache": true
+    //"**/tsconfig.tsbuildinfo": true,
+    "**/node_modules": true
+    // "**/.rollup.cache": true
   }
 }

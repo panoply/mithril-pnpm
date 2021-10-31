@@ -1,16 +1,28 @@
-## @mpnpm/eslint-config
+# @mpnpm/eslint-config
 
-This package includes a shareable ESLint configuration consumed across the workspace in different packages.
+This package includes a shareable [ESLint](https://eslint.org/) configuration that can be consumed across the workspace in different packages. This approach allows us to publish the config on the npm registry.
 
-### Install
+### Demonstrates
 
-[pnpm](https://pnpm.js.org/en/cli/install)
+This package demonstrates how an organization or project that ships both open and closed source packages can leverage a shared [ESLint](https://eslint.org/) configuration.
+
+# Commands
+
+The below command can be executed from within the package.
 
 ```cli
-pnpm i @mpnpm/eslint-config --save-dev
+pnpm bump     Updates packages depending on the module to latest version
 ```
 
-### Usage
+# Install
+
+```cli
+pnpm add @mpnpm/eslint-config -D
+```
+
+> The `main` file is a commonjs module type. This is because eslint does not yet support ESM.
+
+# Usage
 
 Extend the configuration within `package.json` files
 
@@ -23,7 +35,3 @@ Extend the configuration within `package.json` files
   }
 }
 ```
-
-### Monorepo/Workspace
-
-This module is installed at project root of the mono-repo and thus it is available for consumption by all containing packages. If you have closed sourced packages then you consume the module from root whereas for any open source packages existing in the workspace you can provide the config as a development dependency in the projects. This approach allows individuals outside of on an organization to keep the code style aesthetics when contributing to projects made available to the public.

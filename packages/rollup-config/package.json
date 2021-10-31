@@ -1,23 +1,25 @@
 {
   "name": "@mpnpm/rollup-config",
   "version": "1.0.0",
-  "description": "Shared rollup config example",
+  "description": "Shared rollup configuration example",
   "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "postpublish": "pnpm up @mpnpm/rollup-config -r",
+    "bump": "pnpm up @mpnpm/rollup-config -r",
+    "postversion": "pnpm bump",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prettier": "@mpnpm/prettier-config",
   "eslintConfig": {
-    "ignorePatterns": "package",
-    "extends": "@mpnpm/eslint-config"
+    "extends": "@mpnpm/eslint-config",
+    "ignorePatterns": [
+      "index.js"
+    ]
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@mpnpm/eslint-config": "workspace:^1.0.0",
     "@mpnpm/prettier-config": "workspace:^1.2.1",

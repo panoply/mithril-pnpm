@@ -1,8 +1,10 @@
 {
   "extends": "@mpnpm/tsconfig",
+  "exclude": ["node_modules", "public", "src/styles"],
   "include": ["src"],
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "package"
+    "outDir": "public",
+    "declaration": false,
+    "assumeChangesOnlyAffectDirectDependencies": true
   }
 }

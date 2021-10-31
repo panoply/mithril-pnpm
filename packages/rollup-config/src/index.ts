@@ -4,7 +4,7 @@ import html from '@rollup/plugin-html';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import ts from 'rollup-plugin-typescript2';
+import ts from '@rollup/plugin-typescript';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import copy from 'rollup-plugin-copy';
@@ -13,19 +13,13 @@ import filesize from 'rollup-plugin-filesize';
 import { terser } from 'rollup-plugin-terser';
 
 export { defineConfig as rollup } from 'rollup';
-export {
-  config,
-  env,
-  banner,
-  jsonmin,
-  date
-} from '@brixtol/rollup-utils';
+export { config, env } from '@brixtol/rollup-utils';
 
 /**
  * Rollup Plugins
  *
  * A helper export of rollup plugins used within packages
- * maintained by [Brixtol](htpps://brixtol.com).
+ * maintained by [Brixtol](https://brixtol.com).
  */
 export const plugin = {
   /**
@@ -33,7 +27,7 @@ export const plugin = {
    *
    * [@rollup/plugin-beep](https://git.io/JuTEW)
    */
-  get beep() {
+  get beep () {
     return beep;
   },
   /**
@@ -41,7 +35,7 @@ export const plugin = {
    *
    * [rollup-plugin-copy](https://git.io/JuTux)
    */
-  get copy() {
+  get copy () {
     return copy;
   },
   /**
@@ -49,7 +43,7 @@ export const plugin = {
    *
    * [@rollup/plugin-commonjs](https://git.io/JuTcI)
    */
-  get commonjs() {
+  get commonjs () {
     return commonjs;
   },
   /**
@@ -57,7 +51,7 @@ export const plugin = {
    *
    * [rollup-plugin-delete](https://git.io/JuTz3)
    */
-  get del() {
+  get del () {
     return del;
   },
   /**
@@ -65,7 +59,7 @@ export const plugin = {
    *
    * [rollup-plugin-filesize](https://git.io/JuTzw)
    */
-  get filesize() {
+  get filesize () {
     return filesize;
   },
   /**
@@ -73,7 +67,7 @@ export const plugin = {
    *
    * [@rollup/plugin-html](https://git.io/JuTWL)
    */
-  get html() {
+  get html () {
     return html;
   },
   /**
@@ -81,7 +75,7 @@ export const plugin = {
    *
    * [rollup-plugin-livereload](https://git.io/JuTu8)
    */
-  get livereload() {
+  get livereload () {
     return livereload;
   },
   /**
@@ -89,7 +83,7 @@ export const plugin = {
    *
    * [rollup-plugin-postcss](https://git.io/JuEZg)
    */
-  get postcss() {
+  get postcss () {
     return postcss;
   },
   /**
@@ -97,7 +91,7 @@ export const plugin = {
    *
    * [@rollup/plugin-node-resolve](https://git.io/JOqCR)
    */
-  get resolve() {
+  get resolve () {
     return resolve;
   },
   /**
@@ -105,7 +99,7 @@ export const plugin = {
    *
    * [@rollup/plugin-replace](https://git.io/JuTcC)
    */
-  get replace() {
+  get replace () {
     return replace;
   },
   /**
@@ -113,22 +107,22 @@ export const plugin = {
    *
    * [rollup-plugin-serve](https://git.io/JuTuq)
    */
-  get serve() {
+  get serve () {
     return serve;
   },
   /**
    * Minify generated es bundle using terser under the hood.
    * [rollup-plugin-terser](https://git.io/JuTz5)
    */
-  get terser() {
+  get terser () {
     return terser;
   },
   /**
    * Seamless integration with Typescript.
    *
-   * [rollup-plugin-typescript2](https://git.io/JuEpw
+   * [@rollup/plugin-typescript](https://git.io/JuTng)
    */
-  get ts() {
+  get ts () {
     return ts;
   }
 };
