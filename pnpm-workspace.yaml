@@ -1,7 +1,12 @@
 packages:
+  # BUILD PACKAGES
+  # These are organized into specific sort order
+  - "build/eslint-config"
+  - "build/tsconfig"
+  - "build/prettier-config"
+  - "build/rollup-config"
+  # PACKAGES
+  # These package will not be published to npm registry
   - "packages/api"
   - "packages/app"
-  - "packages/eslint-config"
-  - "packages/rollup-config"
-  - "packages/tsconfig"
-  - "packages/prettier-config"
+  - "packages/app-mcss"
