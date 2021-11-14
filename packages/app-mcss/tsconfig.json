@@ -1,0 +1,17 @@
+{
+  "extends": "@mpnpm/tsconfig",
+  "exclude": ["node_modules", "public"],
+  "include": ["src/index.ts", "src/style/styles.d.ts"],
+  "compilerOptions": {
+    "outDir": "public",
+    "target": "ES6",
+    "lib": ["ES2020", "DOM", "ES2015.Promise"],
+    "module": "ES6",
+    "baseUrl": ".",
+    "noEmit": true,
+    "moduleResolution": "Node",
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
+}
