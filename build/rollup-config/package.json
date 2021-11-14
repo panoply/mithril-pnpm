@@ -1,0 +1,51 @@
+{
+  "name": "@mpnpm/rollup-config",
+  "version": "1.0.0",
+  "description": "Shared rollup configuration example",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "bump": "pnpm up @mpnpm/rollup-config -r",
+    "postinstall": "pnpm build",
+    "postversion": "pnpm bump",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prettier": "@mpnpm/prettier-config",
+  "eslintConfig": {
+    "extends": "@mpnpm/eslint-config",
+    "ignorePatterns": [
+      "dist"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@mpnpm/eslint-config": "workspace:^1.0.0",
+    "@mpnpm/prettier-config": "workspace:^1.2.1",
+    "@mpnpm/tsconfig": "workspace:^1.0.0",
+    "@types/browser-sync": "^2.26.3",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "rollup": "^2.60.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "@brixtol/rollup-utils": "^1.2.0",
+    "@rollup/plugin-beep": "^0.2.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-html": "^0.2.4",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "rollup-plugin-browsersync": "^1.3.3",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0"
+  }
+}

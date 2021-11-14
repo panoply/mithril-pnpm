@@ -1,0 +1,12 @@
+# FILES
+tsconfig.json
+.prettierignore
+readme.md
+changelog.md
+
+# DIRECTORIES
+.vscode
+types
+node_modules
+versions
+src

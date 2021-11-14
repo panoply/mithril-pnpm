@@ -1,0 +1,7 @@
+{
+  "name": "@mpnpm/tsconfig",
+  "version": "1.0.0",
+  "description": "Shared typescript config example",
+  "main": "tsconfig.json",
+  "license": "MIT"
+}
