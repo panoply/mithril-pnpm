@@ -2,21 +2,21 @@
   "name": "@mpnpm/api",
   "version": "1.0.0",
   "private": true,
-  "description": "A private package that contains some logic that can be consumed in different package across the workspace",
-  "main": "./package/index.js",
-  "exports": "./package/index.js",
+  "description": "A private package that contains some logic that can be consumed in different packages across the workspace",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c --environment prod && tsc --emitDeclarationOnly",
     "dts": "tsc --emitDeclarationOnly",
-    "bump": "pnpm up @mpnpm/prettier-config -r",
-    "postversion": "pnpm bump"
+    "bump": "pnpm up @mpnpm/api -r",
+    "postpublish": "pnpm bump"
   },
   "prettier": "@mpnpm/prettier-config",
   "eslintConfig": {
     "extends": "@mpnpm/eslint-config",
     "ignorePatterns": [
-      "public"
+      "dist"
     ]
   },
   "license": "MIT"
