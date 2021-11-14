@@ -1,5 +1,10 @@
-node_modules
+# FILES
+pnpm-workspace.yaml
+.pnpm-debug.log
+
+# DIRECTORIES
 .rollup.cache
 tsconfig.tsbuildinfo
-package
+node_modules
 public
+dist
