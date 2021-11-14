@@ -1,6 +1,6 @@
 {
   "extends": "@mpnpm/tsconfig",
-  "exclude": ["node_modules", "public", "src/styles"],
+  "exclude": ["node_modules", "dist", "src/styles"],
   "include": ["src"],
   "compilerOptions": {
     "outDir": "public",

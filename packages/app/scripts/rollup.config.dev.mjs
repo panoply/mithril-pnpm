@@ -5,7 +5,7 @@ import sass from 'sass';
 import autoprefixer from 'autoprefixer';
 import purge from '@fullhuman/postcss-purgecss';
 
-export default rollup([
+export default rollup(
   {
     input: 'src/index.ts',
     output: [
@@ -24,20 +24,20 @@ export default rollup([
         }
       }
     ],
-    treeshake: env.if('prod')('smallest')('recommended'),
     plugins: [
-      plugin.del(
-        {
-          runOnce: env.watch,
-          targets: [
-            'public/*'
-          ]
-        }
-      ),
       plugin.resolve(
         {
           browser: true,
           preferBuiltins: true,
+          extensions: [
+            '.ts',
+            '.js'
+          ]
+        }
+      ),
+      plugin.commonjs(
+        {
+          transformMixedEsModules: true,
           extensions: [
             '.ts',
             '.js'
@@ -50,15 +50,6 @@ export default rollup([
           tslib,
           outputToFilesystem: false,
           incremental: env.dev
-        }
-      ),
-      plugin.commonjs(
-        {
-          transformMixedEsModules: true,
-          extensions: [
-            '.ts',
-            '.js'
-          ]
         }
       ),
       plugin.postcss(
@@ -98,38 +89,23 @@ export default rollup([
           ]
         }
       ),
-      env.is('dev', plugin.serve(
+      plugin.bs(
         {
-          open: false,
-          host: 'localhost',
-          port: 10008,
-          contentBase: [
-            'public'
+          watch: true,
+          server: 'public',
+          snippetOptions: {
+            rule: {
+              match: /<\/head>/i,
+              fn: (snippet, match) => snippet + match
+            }
+          },
+          files: [
+            '*.css',
+            '*.js',
+            'chunks/*.js'
           ]
         }
-      )),
-      env.is('dev', plugin.livereload(
-        {
-          delay: 0,
-          watch: [
-            'public'
-          ]
-        }
-      )),
-      env.is('prod', plugin.terser(
-        {
-          ecma: 2016,
-          compress: {
-            passes: 2
-          }
-        }
-      )),
-      env.is('prod', plugin.filesize(
-        {
-          showBeforeSizes: 'build'
-        }
-      ))
+      )
     ]
-
   }
-]);
+);

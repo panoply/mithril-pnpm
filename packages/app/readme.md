@@ -4,7 +4,7 @@ This package is an example TypeScript [Mithril](https://mithril.js.org/) applica
 
 ### SUPPORTS
 
-- Server + Live Reloading
+- Server + Live Reloading using [BrowserSync](https://browsersync.io/docs/options)
 - SCSS/SASS support via [PostCSS](https://postcss.org/)
 - Transforms TypeScript into Browser ESM valid output
 - Code Splitting + Tree-shaking
@@ -24,5 +24,3 @@ The below command can be executed from within the package. This module is howeve
 pnpm dev      Starts development in watch mode
 pnpm build    Runs a production build
 ```
-
-> TypeScript will hang on production builds with Rollup, this is an upstream issue with watcher leaks. This issue is with TypeScript itself. Either downgrade the version or await the merge in 4.4.5.
