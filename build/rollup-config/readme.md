@@ -4,7 +4,7 @@ Shareable rollup configuration used within the monorepo. The module acts as an i
 
 ### Demonstrates
 
-This package demonstrates how we can provides a single dependency import for bundling with Rollup across the workspace. This approach gives a single source which all our package can use. In addition, one can also feed missing types to plugins when required.
+This package demonstrates how we can provide a single dependency import for bundling with Rollup across a monorepo workspace. This approach gives a single source which all our packages can use. In addition, one can also supply missing types to plugins when required.
 
 # Commands
 
@@ -26,7 +26,7 @@ pnpm add @mpnpm/rollup-config -D
 
 # Usage
 
-This is an ESM module, so rollup config files must use a `.mjs` extension (`rollup.config.mjs`) or else Node will complain. The `rollup()` export is totally optional, its a re-export of `defineConfig` and used to provide type completions.
+This is an ESM module, so rollup config files must use a `.mjs` extension (eg: `rollup.config.mjs`) or else Node will complain. The `rollup()` export is totally optional, its a re-export of `defineConfig` and used to provide type completions.
 
 <!-- prettier-ignore -->
 ```ts
@@ -56,18 +56,14 @@ export default rollup(
 );
 ```
 
-### TypeScript Compilation
+### Rollup + ESBuild
 
-This project is using the [official](https://github.com/rollup/plugins/tree/master/packages/typescript) Rollup TypeScript plugin. It's not really ideal but its a lot faster than [rollup-plugin-typescript2](https://github.com/ezolenko/rollup-plugin-typescript2). The Rollup plugin maintainer/s are arrogant, rude and rather insufferable individuals so any potential contributors are typically scorned by them. This has resulted in the TypeScript issue at hand to result in a minor headaches but this example mono does try and negate some of those issues.
+This package is using ESBuild together will Rollup. TypeScript and JavaScript modules are processed with [esbuild](https://esbuild.github.io/) using [rollup-plugin-esbuild](https://github.com/egoist/rollup-plugin-esbuild). Within [packages](https://github.com/panoply/mithril-pnpm/tree/master/packages) you can review the `rollup.config.mjs` files to see how we can leverage the speed of esbuild and a couple of additional plugins to produce a TypeScript compatible build environment.
 
 ##### Declarations
 
 The official plugin does not generate declaration files correctly and in order to combat that `pnpm build` scripts on TypeScript packages in the workspace will execute a second `tsc` command which will emit declarations.
 
-
-##### Consuming `.d.ts` files
-
-The official plugin will be a pain if you directly import declarations, you are unlikely to face such an issue but it does occur. In any sense, if the official Rollup plugin for TypeScript is annoying the absolute fuck out of you, then, simply swap it out for [rollup-plugin-typescript2](https://github.com/ezolenko/rollup-plugin-typescript2).
 
 ### Utilities Helper
 
