@@ -1,7 +1,11 @@
 # FILES
 .npmrc
 readme.md
+changelog.md
+tsconfig.json
+rollup.config.mjs
 
 # DIRECTORIES
 .vscode
 node_modules
+src
