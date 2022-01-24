@@ -1,6 +1,6 @@
 # @mpnpm/prettier-config
 
-This package includes a shareable Prettier configuration that can be consumed across the workspace in different packages. This approach allows us to publish the config on the npm registry.
+This package includes a shareable Prettier configuration that can be consumed across the workspace in different packages. This approach allows us to publish the config on the npm registry and use it within the monorepo.
 
 ### Demonstrates
 
@@ -33,6 +33,9 @@ Extend configuration from within `package.json` files.
 ```
 
 ### Text Editor (VSCode)
+
+
+
 
 Install the [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extension from the marketplace. Depending on how your editor is configured, one may require setting global configuration in a user `settings.json` file:
 
