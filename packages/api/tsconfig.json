@@ -1,10 +1,16 @@
 {
   "extends": "@mpnpm/tsconfig",
-  "exclude": ["package"],
+  "exclude": ["dist"],
   "include": ["src"],
   "compilerOptions": {
     "incremental": false,
     "outDir": "dist",
     "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "bar/*": ["src/bar/*"],
+      "foo/*": ["src/foo/*"]
+    }
   }
 }
