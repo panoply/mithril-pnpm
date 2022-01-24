@@ -4,13 +4,13 @@ This is example API module package. It is using development dependencies from th
 
 ```js
 // Monorepo Approach
-import { someFunction } from "@mpnpm/api";
+import { someFunction } from '@mpnpm/api';
 
 // Traditional Approach
-import { someFunction } from "../path-to-dir";
+import { someFunction } from '../path-to-dir';
 ```
 
-Because we are working within a monorepo, we can isolate this module into it's own package and then consume it wherever we may require it by simply installing, eg: `pnpm add @mpnpm/api`
+Because we are working within a monorepo, we can isolate this module into it's own package and then consume it wherever we may require it by installing, eg: `pnpm add @mpnpm/api`
 
 ### Private Package
 
@@ -22,6 +22,14 @@ The benefits with this approach is we are able to decouple the logic elegantly. 
 
 This package demonstrates how to leverage dependencies installed in the root of the monorepo. It also is being consumed by another package in the workspace. In big projects with lots of closed source modules this is a great way to keep logic separate.
 
+### ESBuild Bundle
+
+This module is bundled with [esbuild](https://esbuild.github.io/) which handles TypeScript in a fast and productive manner. We can optionally generated declaration files by running `pnpm dts` which will emit declarations into our `dist` directory.
+
+### Path aliases
+
+This module is leverages path aliases by combining the `files[]` option in the `tsconfig.json` file together with the [@rollup/plugin-alias](https://git.io/JuTc9) plugin. We also take advantage of the the utilities export provided in our build package to reference our alias paths.
+
 # Commands
 
 ```cli
@@ -30,8 +38,6 @@ pnpm build    Runs a production build
 pnpm dts      Emits Type declarations, alias for "tsc --emitDeclarationOnly"
 pnpm bump     Updates packages depending on module to latest version
 ```
-
-> In order to ensure we generate declaration files using [@rollup/plugin-typescript](https://github.com/rollup/plugins/tree/master/packages/typescript) a second tsc command is executed when running `build` to emit declarations.
 
 # Install
 

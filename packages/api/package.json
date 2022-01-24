@@ -7,7 +7,7 @@
   "exports": "./dist/index.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c --environment prod && tsc --emitDeclarationOnly",
+    "build": "rollup -c --environment prod",
     "dts": "tsc --emitDeclarationOnly",
     "bump": "pnpm up @mpnpm/api -r",
     "postpublish": "pnpm bump"
