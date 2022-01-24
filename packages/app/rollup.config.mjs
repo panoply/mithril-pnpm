@@ -1,6 +1,4 @@
-import { env, rollup, plugin } from '@mpnpm/rollup-config';
-import typescript from 'typescript';
-import * as tslib from 'tslib';
+import { env, rollup, plugin, config } from '@mpnpm/rollup-config';
 import sass from 'sass';
 import autoprefixer from 'autoprefixer';
 import purge from '@fullhuman/postcss-purgecss';
@@ -21,10 +19,41 @@ export default rollup(
           mithril: [
             'mithril'
           ]
-        }
+        },
+        plugins: env.is('prod', [
+          plugin.esminify(),
+          plugin.filesize(
+            {
+              showBeforeSizes: 'build'
+            }
+          )
+        ])
       }
     ],
     plugins: [
+      env.is('prod', plugin.del(
+        {
+          verbose: true,
+          runOnce: true,
+          targets: 'public/*'
+        }
+      )),
+      plugin.alias(
+        {
+          customResolver: plugin.resolve(
+            {
+              extensions: [ '.ts' ]
+            }
+          ),
+          entries: config.alias(
+            [
+              'components',
+              'styles'
+            ]
+          )
+        }
+      ),
+      plugin.esbuild(),
       plugin.resolve(
         {
           browser: true,
@@ -44,31 +73,29 @@ export default rollup(
           ]
         }
       ),
-      plugin.ts(
-        {
-          typescript,
-          tslib,
-          outputToFilesystem: false,
-          incremental: env.dev
-        }
-      ),
       plugin.postcss(
         {
           extract: true,
           autoModules: false,
           use: { sass },
-          plugins: env.dev ? [
-            autoprefixer(),
-            purge(
-              {
-                variables: true,
-                content: [
-                  'src/index.ts',
-                  'src/components/**/*.ts'
-                ]
-              }
-            )
-          ] : []
+          minimize: env.prod,
+          plugins: env.if('dev')(
+            [
+              autoprefixer()
+            ]
+          )(
+            [
+              purge(
+                {
+                  variables: true,
+                  content: [
+                    'src/index.ts',
+                    'src/components/**/*.ts'
+                  ]
+                }
+              )
+            ]
+          )
         }
       ),
       plugin.html(
@@ -89,7 +116,7 @@ export default rollup(
           ]
         }
       ),
-      plugin.bs(
+      env.is('dev', plugin.bs(
         {
           watch: true,
           server: 'public',
@@ -105,7 +132,7 @@ export default rollup(
             'chunks/*.js'
           ]
         }
-      )
+      ))
     ]
   }
 );
