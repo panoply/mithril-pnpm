@@ -1,6 +1,6 @@
 # @mpnpm
 
-An example monorepo strap. The project can be used as a starting point for pnpm projects. Provides a series of packages that are consumed by various modules across the workspace. It includes a couple of packages that be used in a bundle and/or build processes.
+An example monorepo strap. The project can be used as a starting point for pnpm projects. Provides a series of packages that are consumed by various modules across the workspace. It includes a couple of packages that can be used in a bundle and/or build processes.
 
 It is rather opinionated and the approaches employed are mostly geared towards mithril users.
 
@@ -70,7 +70,7 @@ This is a shareable ESLint config. Extend configuration from within `package.jso
 
 ## `/packages`
 
-this directory contains non-build specific packages, those which would be a library, application, module or something else. Contained within this example is the following:
+This directory contains non-build specific packages, those which would be a library, application, module or something else. Contained within this example is the following:
 
 #### @mpnpm/api
 
@@ -79,7 +79,3 @@ This is a simple package that has some exported members that can be consumed in 
 #### @mpnpm/app
 
 This is a basic mithril app that uses `@mpnpm/api` and is bundling using Rollup and TypeScript. It demonstrates a private package using workspace packages.
-
-#### @mpnpm/app-mcss
-
-This is an example app that is using [mcss](https://github.com/brixtol/mcss). You can ignore this package, it is just an example, and merely exists are a reference point for anyone interested in the POC module.

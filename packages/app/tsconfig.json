@@ -5,6 +5,12 @@
   "compilerOptions": {
     "outDir": "public",
     "declaration": false,
-    "assumeChangesOnlyAffectDirectDependencies": true
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "styles/*": ["src/styles/*"]
+    }
   }
 }
