@@ -1,25 +1,47 @@
 import { config, env, rollup, plugin } from '@mpnpm/rollup-config';
-import typescript from 'typescript';
-import * as tslib from 'tslib';
 
 export default rollup(
   {
     input: 'src/index.ts',
     output: {
       format: 'esm',
-      file: config.output.main,
       exports: 'named',
       sourcemap: env.is('dev', 'inline'),
-      preferConst: true
+      file: config.output.main,
+      preferConst: true,
+      plugins: env.is('prod', [
+        plugin.esminify(),
+        plugin.filesize(
+          {
+            showBeforeSizes: 'build'
+          }
+        )
+      ])
     },
     plugins: [
-      plugin.ts(
+      plugin.del(
         {
-          typescript,
-          tslib,
-          outputToFilesystem: false
+          verbose: true,
+          runOnce: true,
+          targets: 'dist/*'
         }
       ),
+      plugin.alias(
+        {
+          customResolver: plugin.resolve(
+            {
+              extensions: [ '.ts' ]
+            }
+          ),
+          entries: config.alias(
+            [
+              'foo',
+              'bar'
+            ]
+          )
+        }
+      ),
+      plugin.esbuild(),
       plugin.resolve(
         {
           preferBuiltins: true,
@@ -37,20 +59,7 @@ export default rollup(
             '.js'
           ]
         }
-      ),
-      env.is('prod', plugin.terser(
-        {
-          ecma: 2016,
-          compress: {
-            passes: 2
-          }
-        }
-      )),
-      env.is('prod', plugin.filesize(
-        {
-          showBeforeSizes: 'build'
-        }
-      ))
+      )
     ]
   }
 );
