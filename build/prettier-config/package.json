@@ -1,6 +1,6 @@
 {
   "name": "@mpnpm/prettier-config",
-  "version": "1.2.1",
+  "version": "1.0.0",
   "description": "Shared prettier config across monorepo",
   "main": "prettier.cjs",
   "prettier": "./prettier.cjs",
@@ -19,9 +19,9 @@
     "pnpm": ">=6"
   },
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1"
   },
   "peerDependencies": {
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1"
   }
 }
