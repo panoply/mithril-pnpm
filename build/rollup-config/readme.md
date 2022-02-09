@@ -1,6 +1,6 @@
 # @mpnpm/rollup-config
 
-Shareable rollup configuration used within the monorepo. The module acts as an interface, it exports an instance of Rollup and several plugins that are frequently used by packages contained across the workspace. We expose the plugins using getters to better help negate the referencing factor involved when certain projects only require certain plugins.
+Shareable rollup configuration used within the monorepo. The module acts as an interface, it exports an instance of Rollup and several plugins that are frequently used by packages contained across the workspace. We expose the plugins using getters to negate the referencing factor involved when certain projects only require certain plugins.
 
 ### Demonstrates
 
@@ -22,11 +22,11 @@ pnpm bump     Updates packages depending on module to latest version
 pnpm add @mpnpm/rollup-config -D
 ```
 
-> This module will be built on `postinstall`
+> This module will be built on `postinstall` from root when running `pnpm i`
 
 # Usage
 
-This is an ESM module, so rollup config files must use a `.mjs` extension (eg: `rollup.config.mjs`) or else Node will complain. The `rollup()` export is totally optional, its a re-export of `defineConfig` and used to provide type completions.
+This is an ESM module, so rollup config files must use a `.mjs` extension (eg: `rollup.config.mjs`). The `rollup()` export is totally optional, its a re-export of `defineConfig` and used to provide type completions.
 
 <!-- prettier-ignore -->
 ```ts
@@ -35,7 +35,7 @@ import { rollup, env, plugin } from "@mpnpm/rollup-config";
 export default rollup(
   {
     input: "src/file.ts",
-    output:   {
+    output: {
       format: 'cjs',
       dir: 'package',
       sourcemap: env.is('dev', 'inline'), // Inline sourcemap in development else false
@@ -49,7 +49,7 @@ export default rollup(
       ]
     )(
       [
-        plugin.terser()
+        plugin.minify()
       ]
     )
   }
@@ -58,13 +58,12 @@ export default rollup(
 
 ### Rollup + ESBuild
 
-This package is using ESBuild together will Rollup. TypeScript and JavaScript modules are processed with [esbuild](https://esbuild.github.io/) using [rollup-plugin-esbuild](https://github.com/egoist/rollup-plugin-esbuild). Within [packages](https://github.com/panoply/mithril-pnpm/tree/master/packages) you can review the `rollup.config.mjs` files to see how we can leverage the speed of esbuild and a couple of additional plugins to produce a TypeScript compatible build environment.
+This package allows us to leverage ESBuild together will Rollup. TypeScript and JavaScript modules are processed with [esbuild](https://esbuild.github.io/) using [rollup-plugin-esbuild](https://github.com/egoist/rollup-plugin-esbuild). The monorepo [packages](https://github.com/panoply/mithril-pnpm/tree/master/packages) directory is where you can review `rollup.config.mjs` files and see how we leverage the speed of esbuild together with rollup. We also leverage a couple of additional plugins to produce seamless alias paths in the build environment.
 
 ##### Declarations
 
-The official plugin does not generate declaration files correctly and in order to combat that `pnpm build` scripts on TypeScript packages in the workspace will execute a second `tsc` command which will emit declarations.
-
+Because we are using esbuild instead of the the official TypeScript compiler plugins with Rollup declaration files will not be generated. Running `pnpm build` scripts on TypeScript packages in the workspace will execute a second `tsc` command which emits declarations using `----emitDeclarationOnly` flag. It is important to keep this in mind and correctly configure `outDir` within `tsconfig.json` files.
 
 ### Utilities Helper
 
-The configuration is using [@brixtol/rollup-utils](https://github.com/BRIXTOL/rollup-utils) as a helper module, feel free to remove, as it's merely a convenience util but helps normalize the bundle configuration files is a nice way.
+This package is using [@brixtol/rollup-utils](https://github.com/BRIXTOL/rollup-utils) utility helper module. This module gives us some really helpful methods when working with Rollup. Feel free to remove it as it's merely a convenience utility that normalizes and brings some level of sanity to the bundle configuration files.
