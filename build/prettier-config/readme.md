@@ -11,7 +11,7 @@ This package demonstrates how an organization or project that ships both open an
 The below command can be executed from within the package.
 
 ```cli
-pnpm bump     Updates packages depending on the module to latest version
+$ pnpm bump     Updates packages depending on the module to latest version
 ```
 
 # Install
@@ -32,10 +32,7 @@ Extend configuration from within `package.json` files.
 }
 ```
 
-### Text Editor (VSCode)
-
-
-
+### Text Editor (VS Code)
 
 Install the [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extension from the marketplace. Depending on how your editor is configured, one may require setting global configuration in a user `settings.json` file:
 
