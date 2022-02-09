@@ -14,6 +14,8 @@ pnpm i
 
 You can then cd into different packages (mainly `api` and `app`). While you can execute commands from root, it is just best to `cd` into the directories you are working within. Look at [pnpm filtering](https://pnpm.io/filtering) to understand and better leverage workspace executions from different locations.
 
+> The entire workspace is built in `postinstall`
+
 ## Commands
 
 Every package has the following commands:
@@ -28,8 +30,6 @@ If you are calling these from root directory:
 ```cli
 pnpm dev   <pkg>  Start development for a specific package from root
 pnpm build <pkg>  Runs a production build on specific package from root
-pnpm dev:all      Starts development in watch mode (if calling from root, runs recursively)
-pnpm build:all    Runs a production build (if calling from root, runs recursively)
 ```
 
 ## `/build`
@@ -61,7 +61,7 @@ This is a shareable ESLint config. Extend configuration from within `package.jso
 ```jsonc
 {
   "eslintConfig": {
-    "ignorePatterns": "*.html",
+    "ignorePatterns": ["*.html"],
     "extends": ["@mpnpm/eslint-config"],
     "rules": {}
   }
