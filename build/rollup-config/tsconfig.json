@@ -1,9 +1,9 @@
 {
   "extends": "@mpnpm/tsconfig",
   "exclude": ["node_modules"],
-  "include": ["src/index.ts"],
+  "include": ["index.ts"],
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": ".",
     "incremental": false,
     "skipLibCheck": true,
     "target": "ES2016"
