@@ -3,19 +3,16 @@
   "version": "1.0.0",
   "description": "Example of pnpm monorepo for mithril friends",
   "scripts": {
-    "dev": "pnpm dev --filter ./packages/",
-    "build": "pnpm dev --filter ./packages/",
-    "dev:all": "pnpm dev -r --no-sort --workspace-concurrency Infinity",
-    "build:all": "pnpm build -r --stream --filter !./packages/app-mcss --filter ./packages/ --workspace-concurrency Infinity",
+    "dev": "pnpm dev -r --no-sort --workspace-concurrency Infinity",
+    "build": "pnpm build -r --stream --filter ./build/ --filter ./packages/ --workspace-concurrency Infinity",
+    "postinstall": "pnpm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@mpnpm/eslint-config": "workspace:^1.0.0",
-    "@mpnpm/prettier-config": "workspace:^1.2.1",
+    "@mpnpm/prettier-config": "workspace:^1.0.0",
     "@mpnpm/rollup-config": "workspace:^1.0.0",
     "@mpnpm/tsconfig": "workspace:^1.0.0",
-    "@types/sass": "^1.43.1",
-    "tslib": "^2.3.1",
     "typescript": "^4.5.5"
   }
 }
